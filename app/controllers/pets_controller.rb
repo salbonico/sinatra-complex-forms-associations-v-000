@@ -44,7 +44,7 @@ class PetsController < ApplicationController
   patch '/pets/:id' do
     @owners = Owner.all
     @pet = Pet.find(params[:id])
-    @pet.update(params[:pet])
+    @pet.update(params[:pet_name])
 
     redirect to "pets/#{@pet.id}"
   end
