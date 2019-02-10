@@ -45,7 +45,7 @@ class PetsController < ApplicationController
     binding.pry
     @owners = Owner.all
     @pet = Pet.find(params[:id])
-    @pet.update(:name => params[:pet_name])
+    @pet.update(:name => params[:pet_name], :owner_id => params[:pet][:owner_ids][0])
 
     redirect to "pets/#{@pet.id}"
   end
