@@ -42,13 +42,13 @@ class PetsController < ApplicationController
   end
 
   patch '/pets/:id' do
-    binding.pry
+
     @owners = Owner.all
     @pet = Pet.find(params[:id])
     @pet.update(:name => params[:pet_name], :owner_id => params[:pet][:owner_ids][0])
 
-    if !params["owner[name]"].empty?
-      @new_owner = Owner.create(:name => params[:owner[name]])
+    if !params["owner_name"].empty?
+      @new_owner = Owner.create(:name => params[:owner_name])
       @new_owner.pets << @pet
       @pet.owner_id = @new_owner.id
       @pet.save
