@@ -45,7 +45,7 @@ class PetsController < ApplicationController
 
     @owners = Owner.all
     @pet = Pet.find(params[:id])
-    @pet.update(:name => params[:pet_name], :owner_id => params[:owner][name])
+    @pet.update(:name => params[:pet_name], :owner_id => params[:owner][:name])
 
     if !params["owner_name"].empty?
       @new_owner = Owner.create(:name => params[:owner_name])
