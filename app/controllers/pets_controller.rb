@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 binding.pry
     @pet = Pet.create(:name => params[:pet_name])
 
-    if !params[:pet]= nil
+    if params[:pet] != nil
     @pet.owner_id = params[:pet][:owner_ids][0]
     @pet.save
     end
