@@ -23,6 +23,7 @@ class PetsController < ApplicationController
       @new_owner = Owner.create(:name => params[:owner_name])
       @new_owner.pets << @pet
       @pet.owner_id = @new_owner.id
+      @pet.save
     end
 
 
